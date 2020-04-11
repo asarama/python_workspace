@@ -6,9 +6,7 @@ A package is a module which can contain multiple modules. Usually a directory. A
 from some_package.some_module import SomeClass
 ```
 
-Now user can use our class SomeClass by just importing our package.
-
-All modules can be imported via the import command.
+Now the user can use our class SomeClass by just importing our package.
 
 Python looks for modules recursively through all directories available in sys.path.
 
