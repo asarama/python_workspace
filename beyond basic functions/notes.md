@@ -47,3 +47,9 @@ def tag(name, **attributes):
 ```
 
 tupls can be used to replace positional arguments, and dictionaries can be used to replace keyword arguments. The corresponding * and ** prefixes must be present in the call statement.
+
+Zip is commonly used to transpose datasets.
+
+```Python
+zip(*list)
+```
