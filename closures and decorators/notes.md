@@ -76,3 +76,5 @@ Classes can be used if they have the dunder call method.
 Class instances can be used as well as long as they have the dunder call method.
 
 In Python multiple decorators can be used. When evaluating decorators the decorator closest to the function definition runs first.
+
+When using decorators we sometimes lose important function attributes (__name__, __doc__, etc).

@@ -1,3 +1,5 @@
+import functools
+
 # Example 1
 # Apply a decorator which updates the return logic for all function below
 
@@ -48,7 +50,7 @@ def say_hello(name):
 
 # Example 3
 # Class instances can also be used as decorators. They instead need the function reference in the dunder call method.
-# This gives more flexibility to the decorator since we can set class parameters.
+# This gives more flexibility to the decorator since we can set and mutate class parameters.
 # To turn off tracing in this example all we need to do is set tracer.enabled = False
 
 class Trace:
@@ -73,3 +75,49 @@ tracer = Trace()
 @tracer
 def some_function(list):
     return zip(*list)
+
+
+# Example 4
+# Maintaining function attributes
+
+def some_decorator(function_reference):
+
+    def wrap(*args, **kargs):
+        return function_reference(*args, **kargs)
+
+    wrap.__name__ = function_reference.__name__
+    wrap.__doc__ = function_reference.__doc__
+
+    return wrap
+
+def some_better_decorator(function_reference):
+
+    @functools.wraps(function_reference)
+    def wrap(*args, **kargs):
+        return function_reference(*args, **kargs)
+
+    return wrap
+
+# Example 5
+# Simple decorator factory
+
+def check_even(parameter_index):
+
+    def validator(function_reference):
+
+        @functools(function_reference)
+        def wrap(*args, **kargs):
+            return function_reference(*args, **kargs)
+
+        if args[parameter_index] % 2 != 0:
+            raise ValueError(
+                f'Argument parameter_index must be even.'
+            )
+
+        return wrap
+
+    return validator
+
+@check_even(0)
+def print_even_only(even_number):
+    print(even_number)
