@@ -63,7 +63,7 @@ timer()
 
 #### Decorators
 
-Modify or enhance functions without affecting their definitions.
+Modify or enhance functions or methods without affecting their definitions.
 
 ```Python
 @my_decorator
@@ -71,3 +71,8 @@ def my_function(x,y):
     return x + y
 ```
 
+Not only functions can be used as decorators.
+Classes can be used if they have the dunder call method.
+Class instances can be used as well as long as they have the dunder call method.
+
+In Python multiple decorators can be used. When evaluating decorators the decorator closest to the function definition runs first.
