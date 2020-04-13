@@ -23,7 +23,7 @@ print(cube(2))
 
 ```
 
-```nonlocal``` and ```global``` keywords can be used to look outside your current function scope for reference hoisting.
+`nonlocal` and `global` keywords can be used to look outside your current function scope for reference hoisting.
 
 ```Python
 
@@ -60,3 +60,14 @@ timer()
 # 1.2012623947280
 
 ```
+
+#### Decorators
+
+Modify or enhance functions without affecting their definitions.
+
+```Python
+@my_decorator
+def my_function(x,y):
+    return x + y
+```
+
