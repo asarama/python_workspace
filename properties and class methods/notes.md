@@ -19,3 +19,20 @@ class Something:
 
 ```
 
+Python handles encapsulation via the ```@property``` decorator. Use a _ prefix to annotate properties.
+
+```Python
+class Something:
+
+    def __init(self):
+        self._some_property = 10
+
+    @property
+    def some_property(self):
+        return self._some_property
+
+    @some_property.setter
+    def some_property(self, value):
+        # Add validation logic here
+        self._some_property = value
+```
